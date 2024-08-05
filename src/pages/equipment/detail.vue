@@ -48,7 +48,7 @@ function equipmentPowerSource(powerSource) {
   <PageLayout>
     <div v-if="details.id">
       <!-- 产品信息概况 -->
-      <div class="box-border p-4 pc:grid pc:grid-cols-2 mobile:block pc:gap-4" :class="equipmentPowerSource(details.powerSource).background">
+      <div class="group box-border cursor-pointer rounded-md p-4 pc:grid pc:grid-cols-2 mobile:block pc:gap-4" :class="equipmentPowerSource(details.powerSource).background">
         <!-- 信息 -->
         <div class="h-full w-full pc:flex pc:items-center">
           <dl class="w-full text-base -my-3 divide-y divide-gray-100">
@@ -98,7 +98,7 @@ function equipmentPowerSource(powerSource) {
 
         <!-- 图片 -->
         <img
-          class="w-full cursor-pointer transition-all mobile:mb-6 pc:mb-0 mobile:h-60 pc:h-100 hover:scale-105"
+          class="w-full transition-all mobile:mb-6 pc:mb-0 mobile:h-60 pc:h-100 group-hover:scale-105"
           src="https://www.cndingli.com/upload/images/2022/10/13/8888d6a580354241a96eb5007c1c8355.png"
         >
       </div>

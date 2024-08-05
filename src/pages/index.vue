@@ -223,18 +223,18 @@ const indexThreeContent = ref({
           </div>
         </div>
         <!-- =================mobile -->
-        <div class="absolute left-50% top-0 z-10 h-full w-90% flex-col items-center justify-around pc:hidden mobile:flex -translate-x-1/2">
-          <div data-aos="fade" data-aos-delay="300" class="absolute left-5% top-8% h-24 w-44 flex items-center rounded-xl shadow shadow-orange-100">
-            <img class="h-full w-full rounded-xl" :src="indexThreeContent.infoList[0].imgUrl">
+        <div class="absolute left-50% top-0 z-10 h-full w-90% flex-col flex-col items-center justify-around pc:hidden mobile:flex -translate-x-1/2">
+          <div data-aos="fade" data-aos-delay="300" class="w-full flex items-center justify-end">
+            <img class="h-36 w-66 rounded-xl shadow shadow-orange-100" :src="indexThreeContent.infoList[0].imgUrl">
           </div>
-          <div data-aos="fade" data-aos-delay="300" class="absolute right-5% top-30% h-24 w-44 flex items-center rounded-xl shadow shadow-orange-100">
-            <img class="h-full w-full rounded-xl" :src="indexThreeContent.infoList[1].imgUrl">
+          <div data-aos="fade" data-aos-delay="300" class="w-full flex items-center">
+            <img class="h-36 w-66 rounded-xl shadow shadow-orange-100" :src="indexThreeContent.infoList[1].imgUrl">
           </div>
-          <div data-aos="fade" data-aos-delay="300" class="absolute left-10% top-55% h-24 w-44 flex items-center rounded-xl shadow shadow-orange-100">
-            <img class="h-full w-full rounded-xl" :src="indexThreeContent.infoList[2].imgUrl">
+          <div data-aos="fade" data-aos-delay="300" class="w-full flex items-center justify-end">
+            <img class="h-36 w-66 rounded-xl shadow shadow-orange-100" :src="indexThreeContent.infoList[2].imgUrl">
           </div>
-          <div data-aos="fade" data-aos-delay="300" class="absolute bottom-8% right-10% h-24 w-44 flex items-center rounded-xl shadow shadow-orange-100">
-            <img class="h-full w-full rounded-xl" :src="indexThreeContent.infoList[3].imgUrl">
+          <div data-aos="fade" data-aos-delay="300" class="w-full flex items-center">
+            <img class="h-36 w-66 rounded-xl shadow shadow-orange-100" :src="indexThreeContent.infoList[3].imgUrl">
           </div>
         </div>
       </div>

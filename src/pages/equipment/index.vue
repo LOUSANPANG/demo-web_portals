@@ -11,6 +11,31 @@ watchEffect(async () => {
     { id: 1, title: 'BT44RT(一键原地阔腿)', powerSource: '2', workHeight: '44.44m', workWith: '25.60m', workLoad: '300kg/454kg', imgUrl: 'https://www.cndingli.com/upload/images/2022/09/30/l/e9662d428f1c4a2195f84ff6f8aa6a97.png' },
   ]
 })
+function equipmentPowerSource(powerSource) {
+  switch (powerSource) {
+    case '1':
+      return {
+        shadow: 'shadow-orange-100',
+        background: 'bg-orange-500',
+        name: '柴油',
+      }
+      break
+    case '2':
+      return {
+        shadow: 'shadow-green-100',
+        background: 'bg-green-500',
+        name: '能源',
+      }
+      break
+    default:
+      return {
+        shadow: 'shadow-blue-100',
+        background: 'bg-blue-500',
+        name: '混动',
+      }
+      break
+  }
+}
 
 const filterSelectData = ref({ title: 'Classify', labelList: [{ label: 'AAAA', checked: true, value: '' }, { label: 'BBB', checked: false, value: '' }] })
 
@@ -44,15 +69,18 @@ const filterModal = ref(false)
 
       <!-- 内容 -->
       <div class="w-full grow overflow-y-auto py-6">
-        <div class="grid mobile:grid-cols-1 pc:grid-cols-3 mobile:gap-2 pc:gap-4">
+        <div class="grid mobile:grid-cols-1 pc:grid-cols-3 pc:gap-4 mobile:gap-y-4">
           <RouterLink
             v-for="item in currentEquipments"
             :key="item.id"
             :to="`/equipment/detail?id=${item.id}`"
-            class="group rounded-lg p-4 shadow transition-all hover:shadow-lg"
-            :class="[item.powerSource === '1' ? 'shadow-orange-100' : item.powerSource === '2' ? 'shadow-green-100' : 'shadow-blue-100']"
+            class="group relative rounded-lg bg-gray-100/70 p-4 shadow transition-all hover:shadow-lg"
+            :class="equipmentPowerSource(item.powerSource).shadow"
           >
-            <div class="mb-2 h-56 w-full overflow-hidden rounded-md">
+            <span class="absolute rounded-bl-lg rounded-tr-lg px-3 py-0.5 text-xs text-white tracking-widest uppercase -right-px -top-px" :class="equipmentPowerSource(item.powerSource).background">
+              {{ equipmentPowerSource(item.powerSource).name }}
+            </span>
+            <div class="relative mb-2 h-56 w-full overflow-hidden rounded-md">
               <img
                 :src="item.imgUrl"
                 class="h-full w-full rounded-md object-cover transition-all group-hover:scale-105"

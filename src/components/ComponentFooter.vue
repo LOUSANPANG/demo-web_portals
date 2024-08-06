@@ -1,10 +1,10 @@
 <script lang="ts" setup>
 const footer = ref({
   contact: [
-    { icon: 'i-carbon-logo-wechat', name: '微信' },
-    { icon: 'i-carbon-phone-voice', name: '电话' },
-    { icon: 'i-carbon-logo-twitter', name: 'Mail' },
-    { icon: 'i-carbon-email', name: 'Twitter' },
+    { icon: 'i-carbon-logo-wechat', name: '微信号: xxxxxx' },
+    { icon: 'i-carbon-phone-voice', name: '电话: 12345678901', value: 'tel:40012345678' },
+    { icon: 'i-carbon-email', name: '邮箱: lousanpang@gmail.com', value: 'Mailto:lousanpang@gmail.com' },
+    { icon: 'i-carbon-logo-twitter', name: 'Twitter: xxxxx' },
   ],
   copyright: '© 2024 - Present. All rights reserved.',
 })
@@ -18,12 +18,13 @@ const footer = ref({
     </div>
 
     <div class="mb-4 w-full flex items-center justify-center">
-      <div
+      <a
         v-for="item in footer.contact"
         :key="item.icon"
         :title="item.name"
         :class="[item.icon]"
-        class="mr-2 cursor-pointer text-base text-gray-400 transition duration-100 active:text-gray-600 hover:text-gray-500"
+        :href="item.value"
+        class="mr-2 block cursor-pointer text-base text-gray-400 transition duration-100 active:text-gray-600 hover:text-gray-500"
       />
     </div>
 

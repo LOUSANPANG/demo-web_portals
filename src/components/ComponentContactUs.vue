@@ -1,6 +1,7 @@
 <script lang="ts" setup>
 const mapInfo = ref({
-  mapUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3875.648288342358!2d117.2093320764968!3d36.99002497219352!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x35ea1e53005a7efd%3A0x4676b71c40d3e1c7!2sNorth%20Outer%20Ring%20Road!5e1!3m2!1sen!2s!4v1722321585079!5m2!1sen!2s',
+  locationUrl: '/images/location.png',
+  locationMobileUrl: '/images/location_mobile.png',
   address: '140 meters east of Beiwai Ring Road and Jing Er Road, Jinan District, Jinan City, Shandong Province',
   email: 'HR@CNDINGLI.COM',
   phone: '18660191511',
@@ -22,12 +23,8 @@ const submitInfo = ref({
   <div class="min-h-100% w-full flex flex-wrap items-center justify-between shadow-orange-50 shadow-xl">
     <!-- map -->
     <div class="relative box-border overflow-hidden rounded-lg bg-white px-2 py-4 mobile:h-50vh mobile:w-full pc:h-75vh pc:w-2/3 mobile:pr-2 pc:pr-4">
-      <iframe
-        :src="mapInfo.mapUrl"
-        width="100%"
-        height="100%"
-        style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
-      />
+      <img class="h-full w-full pc:block mobile:hidden" :src="mapInfo.locationUrl">
+      <img class="h-full w-full mobile:block pc:hidden" :src="mapInfo.locationMobileUrl">
       <div class="absolute bottom-6 left-4 z-10 w-90% flex flex-wrap rounded-lg bg-white shadow shadow-gray-50 mobile:py-2 pc:py-4">
         <div class="mobile:mb-4 mobile:w-full pc:w-1/2 mobile:px-3 pc:px-6">
           <div class="mb-1 text-gray-900 font-semibold tracking-widest mobile:text-xs pc:text-sm">
@@ -55,7 +52,7 @@ const submitInfo = ref({
     </div>
 
     <!-- form -->
-    <div class="box-border flex flex-col bg-white py-4 mobile:w-full pc:h-75vh pc:w-1/3 mobile:px-2 pc:px-4">
+    <div class="box-border flex flex-col overflow-y-auto bg-white py-4 mobile:w-full pc:h-75vh pc:w-1/3 mobile:px-2 pc:px-4">
       <h2 class="mb-1 text-gray-900 font-medium mobile:text-base pc:text-lg">
         {{ submitInfo.title }}
       </h2>

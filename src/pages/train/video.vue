@@ -14,7 +14,7 @@ watchEffect(async () => {
 
 <template>
   <PageLayout>
-    <div class="h-72vh w-full flex flex-col justify-between mobile:px-0 pc:px-8">
+    <div class="h-73vh w-full flex flex-col justify-between mobile:px-0 pc:px-8">
       <!-- 搜索、筛选 -->
       <div class="w-full flex items-center justify-end">
         <UiSelect />

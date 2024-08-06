@@ -11,7 +11,7 @@ watchEffect(async () => {
     { id: 1, title: 'BT44RT(一键原地阔腿)', powerSource: '2', workHeight: '44.44m', workWith: '25.60m', workLoad: '300kg/454kg', imgUrl: 'https://www.cndingli.com/upload/images/2022/09/30/l/e9662d428f1c4a2195f84ff6f8aa6a97.png' },
   ]
 })
-function equipmentPowerSource(powerSource) {
+function equipmentPowerSource(powerSource: string) {
   switch (powerSource) {
     case '1':
       return {
@@ -45,7 +45,7 @@ const filterModal = ref(false)
 
 <template>
   <PageLayout>
-    <div class="h-72vh w-full flex flex-col justify-between mobile:px-0 pc:px-8">
+    <div class="h-73vh w-full flex flex-col justify-between mobile:px-0 pc:px-8">
       <!-- 搜索、筛选 -->
       <!-- PC -->
       <div class="w-full items-center justify-end mobile:hidden pc:flex">
@@ -68,7 +68,7 @@ const filterModal = ref(false)
       </div>
 
       <!-- 内容 -->
-      <div class="w-full grow overflow-y-auto py-6">
+      <div class="my-6 w-full grow overflow-y-auto">
         <div class="grid mobile:grid-cols-1 pc:grid-cols-3 pc:gap-4 mobile:gap-y-4">
           <RouterLink
             v-for="item in currentEquipments"

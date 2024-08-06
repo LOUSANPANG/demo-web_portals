@@ -5,10 +5,17 @@ const currentEquipments = ref<Array<{ id: number, [propName: string]: any }>>([]
 watchEffect(async () => {
   pageSize.value = 5
   currentEquipments.value = [
-    { id: 1, title: 'BT44RT(一键原地阔腿)', powerSource: '1', workHeight: '44.44m', workWith: '25.60m', workLoad: '300kg/454kg', imgUrl: 'https://www.cndingli.com/upload/images/2022/08/16/l/fb739c298101405987d46e773c47ad03.png' },
-    { id: 1, title: 'BT44RT(一键原地阔腿)', powerSource: '2', workHeight: '44.44m', workWith: '25.60m', workLoad: '300kg/454kg', imgUrl: 'https://www.cndingli.com/upload/images/2022/09/30/l/e9662d428f1c4a2195f84ff6f8aa6a97.png' },
-    { id: 1, title: 'BT44RT(一键原地阔腿)', powerSource: '3', workHeight: '44.44m', workWith: '25.60m', workLoad: '300kg/454kg', imgUrl: 'https://www.cndingli.com/upload/images/2022/10/06/l/ae12f55264d74ce5badce67c7206230b.png' },
-    { id: 1, title: 'BT44RT(一键原地阔腿)', powerSource: '2', workHeight: '44.44m', workWith: '25.60m', workLoad: '300kg/454kg', imgUrl: 'https://www.cndingli.com/upload/images/2022/09/30/l/e9662d428f1c4a2195f84ff6f8aa6a97.png' },
+    { id: 1, title: '铝合金单柱式升降机', powerSource: '1', workHeight: '44.44m', workWidth: '25.60m', workLoad: '300kg/454kg', imgUrl: '/images/equipment/lvhejindanzhushi.png' },
+    { id: 2, title: '履带式剪叉升降机', powerSource: '2', workHeight: '44.44m', workWidth: '25.60m', workLoad: '300kg/454kg', imgUrl: '/images/equipment/fudaishijiancha.png' },
+    { id: 3, title: '双柱铝合金升降机', powerSource: '3', workHeight: '44.44m', workWidth: '25.60m', workLoad: '300kg/454kg', imgUrl: '/images/equipment/shuangzhulvhejin.png' },
+    { id: 4, title: '套筒式升降机', powerSource: '1', workHeight: '44.44m', workWidth: '25.60m', workLoad: '300kg/454kg', imgUrl: '/images/equipment/taotongshi.png' },
+    { id: 5, title: '拖车曲臂式升降机', powerSource: '2', workHeight: '44.44m', workWidth: '25.60m', workLoad: '300kg/454kg', imgUrl: '/images/equipment/tuochequbishi.png' },
+    { id: 6, title: '登车桥', powerSource: '3', workHeight: '44.44m', workWidth: '25.60m', workLoad: '300kg/454kg', imgUrl: '/images/equipment/dengcheqiao.png' },
+    { id: 7, title: '卸货平台', powerSource: '1', workHeight: '44.44m', workWidth: '25.60m', workLoad: '300kg/454kg', imgUrl: '/images/equipment/xiehuopingtai.png' },
+    { id: 8, title: '移动式剪叉升降机', powerSource: '2', workHeight: '44.44m', workWidth: '25.60m', workLoad: '300kg/454kg', imgUrl: '/images/equipment/yidongshijiancha.png' },
+    { id: 9, title: '自行剪叉式升降机', powerSource: '3', workHeight: '44.44m', workWidth: '25.60m', workLoad: '300kg/454kg', imgUrl: '/images/equipment/zixingjianchashi.png' },
+    { id: 10, title: '自行曲臂式升降机', powerSource: '2', workHeight: '44.44m', workWidth: '25.60m', workLoad: '300kg/454kg', imgUrl: '/images/equipment/zixingqubishi.png' },
+    { id: 11, title: '自行桅杆式升降机', powerSource: '1', workHeight: '44.44m', workWidth: '25.60m', workLoad: '300kg/454kg', imgUrl: '/images/equipment/zixingguiganshi.png' },
   ]
 })
 function equipmentPowerSource(powerSource: string) {
@@ -91,7 +98,7 @@ const filterModal = ref(false)
             </div>
             <div class="flex items-center gap-4">
               <div class="gap-2 mobile:block pc:flex pc:items-center">
-                <div class="i-carbon-fit-to-height h-4 w-4 text-blue-700 mobile:mb-1.5 pc:mb-0" />
+                <img class="h-4 w-4 mobile:mb-1.5 pc:mb-0" src="/images/equipment/icon_height.png">
                 <div>
                   <div class="text-xs text-gray-500">
                     最大工作高度
@@ -102,18 +109,18 @@ const filterModal = ref(false)
                 </div>
               </div>
               <div class="gap-2 mobile:block pc:flex pc:items-center">
-                <div class="i-carbon-fit-to-width h-4 w-4 text-blue-700 mobile:mb-1.5 pc:mb-0" />
+                <img class="h-4 w-4 mobile:mb-1.5 pc:mb-0" src="/images/equipment/icon_width.png">
                 <div>
                   <div class="text-xs text-gray-500">
                     最大作业幅度
                   </div>
                   <div class="text-xs text-gray-900 font-700">
-                    {{ item.workWith }}
+                    {{ item.workWidth }}
                   </div>
                 </div>
               </div>
               <div class="gap-2 mobile:block pc:flex pc:items-center">
-                <div class="i-carbon-bare-metal-server-02 h-4 w-4 text-blue-700 mobile:mb-1.5 pc:mb-0" />
+                <img class="h-4 w-4 mobile:mb-1.5 pc:mb-0" src="/images/equipment/icon_weight.png">
                 <div>
                   <div class="text-xs text-gray-500">
                     安全工作载荷

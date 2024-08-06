@@ -5,11 +5,9 @@ const currentBlogs = ref<Array<{ id: number, [propName: string]: any }>>([]) // 
 watchEffect(async () => {
   pageSize.value = 5
   currentBlogs.value = [
-    { date: 'July 19, 2021', title: 'New trends in Tech', imgUrl: 'https://images.unsplash.com/photo-1593508512255-86ab42a8e620', id: 1 },
-    { date: 'July 19, 2021', title: 'New trends in Tech', imgUrl: 'https://images.unsplash.com/photo-1593508512255-86ab42a8e620', id: 2 },
-    { date: 'July 19, 2021', title: 'New trends in Tech', imgUrl: 'https://images.unsplash.com/photo-1593508512255-86ab42a8e620', id: 3 },
-    { date: 'July 19, 2021', title: 'New trends in Tech', imgUrl: 'https://images.unsplash.com/photo-1593508512255-86ab42a8e620', id: 4 },
-    { date: 'July 19, 2021', title: 'New trends in Tech', imgUrl: 'https://images.unsplash.com/photo-1593508512255-86ab42a8e620', id: 5 },
+    { date: 'July 19, 2021', title: 'New trends in Tech', imgUrl: '/images/blog/demo1.jpg', id: 1 },
+    { date: 'July 19, 2021', title: 'New trends in Tech', imgUrl: '/images/blog/demo2.jpg', id: 2 },
+    { date: 'July 19, 2021', title: 'New trends in Tech', imgUrl: '/images/blog/demo3.jpg', id: 3 },
   ]
 })
 </script>

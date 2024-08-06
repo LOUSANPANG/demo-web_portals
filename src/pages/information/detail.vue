@@ -5,7 +5,7 @@ const blogDetails = ref({
   date: 'July 19, 2021',
   title: 'New trends in Tech',
   description: 'Faucibus commodo massa rhoncus, volutpat. Dignissim sed eget risus enim. Mattis mauris semper sed amet vitae sed turpis id. Id dolor praesent donec est. Odio penatibus risus viverra tellus varius sit neque erat velit. Faucibus commodo massa rhoncus, volutpat. Dignissim sed eget risus enim. Mattis mauris semper sed amet vitae sed turpis id.',
-  imgUrl: 'https://images.unsplash.com/photo-1593508512255-86ab42a8e620',
+  imgUrl: '/images/blog/demo1.jpg',
 })
 </script>
 

@@ -9,15 +9,14 @@ const { width: windowWidth } = useWindowSize()
 // const query = useRoute('/information/detail').query
 const details = ref({
   id: 1,
-  title: 'BT44RT(一键原地阔腿)',
+  title: '铝合金单柱式升降机',
   powerSource: '1',
   workHeight: '44.44m',
-  workWith: '25.60m',
-  workLoad: '300kg/454kg',
-  workWeight: '22500kg',
-  imgUrl: 'https://www.cndingli.com/upload/images/2022/10/13/8888d6a580354241a96eb5007c1c8355.png',
+  workWidth: '25.60m',
+  workWeight: '300kg/454kg',
+  imgUrl: '/images/equipment/lvhejindanzhushi_detail.png',
 })
-function equipmentPowerSource(powerSource) {
+function equipmentPowerSource(powerSource: string) {
   switch (powerSource) {
     case '1':
       return {
@@ -58,7 +57,7 @@ function equipmentPowerSource(powerSource) {
                 名称
               </dt>
               <dd class="text-gray-700 pc:col-span-2">
-                BT44RT
+                {{ details.title }}
               </dd>
             </div>
             <div class="grid py-3 mobile:grid-cols-1 pc:grid-cols-3 mobile:gap-1 pc:gap-4">
@@ -66,7 +65,7 @@ function equipmentPowerSource(powerSource) {
                 最大工作高度
               </dt>
               <dd class="text-gray-700 pc:col-span-2">
-                44.44m
+                {{ details.workHeight }}
               </dd>
             </div>
             <div class="grid py-3 mobile:grid-cols-1 pc:grid-cols-3 mobile:gap-1 pc:gap-4">
@@ -74,7 +73,7 @@ function equipmentPowerSource(powerSource) {
                 最大作业幅度
               </dt>
               <dd class="text-gray-700 pc:col-span-2">
-                25.60m
+                {{ details.workWidth }}
               </dd>
             </div>
             <div class="grid py-3 mobile:grid-cols-1 pc:grid-cols-3 mobile:gap-1 pc:gap-4">
@@ -82,7 +81,7 @@ function equipmentPowerSource(powerSource) {
                 安全工作载荷
               </dt>
               <dd class="text-gray-700 pc:col-span-2">
-                300kg/454kg
+                {{ details.workWeight }}
               </dd>
             </div>
             <div class="grid py-3 mobile:grid-cols-1 pc:grid-cols-3 mobile:gap-1 pc:gap-4">
@@ -99,7 +98,7 @@ function equipmentPowerSource(powerSource) {
         <!-- 图片 -->
         <img
           class="w-full transition-all mobile:mb-6 pc:mb-0 mobile:h-60 pc:h-100 group-hover:scale-105"
-          src="https://www.cndingli.com/upload/images/2022/10/13/8888d6a580354241a96eb5007c1c8355.png"
+          :src="details.imgUrl"
         >
       </div>
 
@@ -180,16 +179,16 @@ function equipmentPowerSource(powerSource) {
           }"
         >
           <SwiperSlide>
-            <img src="https://swiperjs.com/demos/images/nature-1.jpg">
+            <img src="/images/equipment/fudaishijiancha_detail.png">
           </SwiperSlide>
           <SwiperSlide>
-            <img src="https://swiperjs.com/demos/images/nature-2.jpg">
+            <img src="/images/equipment/shuangzhulvhejin_detail.png">
           </SwiperSlide>
           <SwiperSlide>
-            <img src="https://swiperjs.com/demos/images/nature-3.jpg">
+            <img src="/images/equipment/taotongshi_detail.png">
           </SwiperSlide>
           <SwiperSlide>
-            <img src="https://swiperjs.com/demos/images/nature-4.jpg">
+            <img src="/images/equipment/tuochequbishi_detail.png">
           </SwiperSlide>
         </Swiper>
       </div>

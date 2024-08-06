@@ -12,14 +12,15 @@ const indexOneContent = ref({
 // 第二屏
 // 内容
 const indexTwoContent = ref({
+  bgImgUrl: '/images/index/index_2_bg.webp',
   title: 'Equipment',
   subtitle: 'Boom Lifts、Scissor Lifts、Vertical Lifts、Customization...',
   leftViewMoreBtn: { name: 'Equipment center', link: '/equipment' },
   rightInfo: [
-    { title: 'Boom Lifts', imgUrl: '' },
-    { title: 'Scissor Lifts', imgUrl: '' },
-    { title: 'Vertical Lifts', imgUrl: '' },
-    { title: 'Customization', imgUrl: '' },
+    { title: 'Boom Lifts', imgUrl: '/images/index/index_2_bishi.jpg' },
+    { title: 'Scissor Lifts', imgUrl: '/images/index/index_2_jianchashi.jpg' },
+    { title: 'Vertical Lifts', imgUrl: '/images/index/index_2_chuizhishi.jpg' },
+    { title: 'Customization', imgUrl: '/images/index/index_2_dingzhi.jpg' },
   ],
 })
 // 监听中线元素显示
@@ -29,13 +30,14 @@ const indexTwoMidIsVisible = useElementVisibility(refIndexTwoMid)
 // 第三屏
 // 内容
 const indexThreeContent = ref({
+  bgImgUrl: '/images/index/index_3_bg.avif',
   title: 'Service',
   subtitle: 'Company',
   infoList: [
-    { title: '', imgUrl: 'https://cdn.prod.website-files.com/63fdcbe48aa020c0a5493507/656784f4a1a5876ea1668c22_creator-2-p-500.webp' },
-    { title: '', imgUrl: 'https://cdn.prod.website-files.com/63fdcbe48aa020c0a5493507/656784f4ba607c947979e46f_creator-1-p-500.webp' },
-    { title: '', imgUrl: 'https://cdn.prod.website-files.com/63fdcbe48aa020c0a5493507/6567286fa483986cef4ac893_creator-1-p-500.webp' },
-    { title: '', imgUrl: 'https://cdn.prod.website-files.com/63fdcbe48aa020c0a5493507/6567286e6cab2a3cb6cdcfc6_creator-2-p-500.webp' },
+    { title: '', imgUrl: '/images/service/index_3_service1.jpg' },
+    { title: '', imgUrl: '/images/service/index_3_service2.jpg' },
+    { title: '', imgUrl: '/images/service/index_3_service3.jpg' },
+    { title: '', imgUrl: '/images/service/index_3_service4.jpg' },
   ],
 })
 </script>
@@ -53,10 +55,10 @@ const indexThreeContent = ref({
         </div>
         <div class="mx-auto box-border h-full max-w-2xl flex items-center justify-center">
           <div class="text-center">
-            <div data-aos="fade" data-aos-delay="500" class="mb-10 text-4xl font-bold tracking-tight mobile:text-white pc:text-gray-900">
+            <div data-aos="fade" data-aos-delay="500" class="mb-10 text-4xl font-bold tracking-tight mobile:text-white pc:text-white">
               {{ indexOneContent.title }}
             </div>
-            <div data-aos="fade" data-aos-delay="1000" class="text-xl leading-8 mobile:text-gray-300 pc:text-gray-600">
+            <div data-aos="fade" data-aos-delay="1000" class="text-xl leading-8 mobile:text-gray-300 pc:text-white">
               {{ indexOneContent.subtitle }}
             </div>
           </div>
@@ -66,6 +68,7 @@ const indexThreeContent = ref({
       <!-- index 2 -->
       <div relative>
         <CssBackgroundBlack />
+        <img class="absolute block h-full w-full object-cover object-right -z-1" :src="indexTwoContent.bgImgUrl">
         <div class="pc:max-w-screen-xl mx-auto py-20 mobile:max-w-90%">
           <!-- =================pc -->
           <div class="relative w-full items-center justify-center mobile:hidden pc:flex">
@@ -93,43 +96,47 @@ const indexThreeContent = ref({
             <!-- right -->
             <div class="relative h-150 w-135">
               <div
-                class="group absolute left-50% z-1 h-62 w-62 rounded-3xl bg-[#7559ff] shadow-xl backdrop-blur-xl transition-all duration-500 delay-0 ease-linear -translate-x-1/2"
+                class="group absolute left-50% z-1 h-62 w-62 rounded-3xl bg-[#7559ff] backdrop-blur-xl transition-all duration-500 delay-0 ease-linear -translate-x-1/2"
                 :class="[indexTwoMidIsVisible ? 'top-0 translate-y-0' : 'top-50% -translate-y-1/2']"
               >
                 <div class="relative h-full w-full">
-                  <div class="absolute left-2 top-2 rounded-xl bg-gray-900/50 px-4 py-3 text-white pc:group-hover:scale-110">
+                  <div class="absolute left-2 top-2 z-10 rounded-xl bg-gray-900/50 px-4 py-3 text-white pc:group-hover:scale-110">
                     {{ indexTwoContent.rightInfo[0].title }}
                   </div>
+                  <img class="absolute z-1 block h-full w-full rounded-3xl object-cover object-center" :src="indexTwoContent.rightInfo[0].imgUrl">
                 </div>
               </div>
               <div
-                class="group absolute top-50% z-2 h-62 w-62 rounded-3xl bg-[#00bf8f] shadow-xl backdrop-blur-xl transition-all duration-500 delay-0 ease-linear -translate-y-1/2"
+                class="group absolute top-50% z-2 h-62 w-62 rounded-3xl bg-[#00bf8f] backdrop-blur-xl transition-all duration-500 delay-0 ease-linear -translate-y-1/2"
                 :class="[indexTwoMidIsVisible ? 'left-0 translate-x-0' : 'left-50% -translate-x-1/2']"
               >
                 <div class="relative h-full w-full">
-                  <div class="absolute left-2 top-2 rounded-xl bg-gray-900/50 px-4 py-3 text-white group-hover:scale-110">
+                  <div class="absolute left-2 top-2 z-10 rounded-xl bg-gray-900/50 px-4 py-3 text-white group-hover:scale-110">
                     {{ indexTwoContent.rightInfo[1].title }}
                   </div>
+                  <img class="absolute z-1 block h-full w-full rounded-3xl object-cover object-center" :src="indexTwoContent.rightInfo[1].imgUrl">
                 </div>
               </div>
               <div
-                class="group absolute top-50% z-3 h-62 w-62 rounded-3xl bg-[#458fff] shadow-xl backdrop-blur-xl transition-all duration-500 delay-0 ease-linear -translate-y-1/2"
+                class="group absolute top-50% z-3 h-62 w-62 rounded-3xl bg-[#458fff] backdrop-blur-xl transition-all duration-500 delay-0 ease-linear -translate-y-1/2"
                 :class="[indexTwoMidIsVisible ? 'right-0 translate-x-0' : 'right-50% translate-x-1/2']"
               >
                 <div class="relative h-full w-full">
-                  <div class="absolute left-2 top-2 rounded-xl bg-gray-900/50 px-4 py-3 text-white group-hover:scale-110">
+                  <div class="absolute left-2 top-2 z-10 rounded-xl bg-gray-900/50 px-4 py-3 text-white group-hover:scale-110">
                     {{ indexTwoContent.rightInfo[2].title }}
                   </div>
+                  <img class="absolute z-1 block h-full w-full rounded-3xl object-cover object-center" :src="indexTwoContent.rightInfo[2].imgUrl">
                 </div>
               </div>
               <div
-                class="group absolute left-50% z-4 h-62 w-62 rounded-3xl bg-purple-600 shadow-xl backdrop-blur-xl transition-all duration-500 delay-0 ease-linear -translate-x-1/2"
+                class="group absolute left-50% z-4 h-62 w-62 rounded-3xl bg-purple-600 backdrop-blur-xl transition-all duration-500 delay-0 ease-linear -translate-x-1/2"
                 :class="[indexTwoMidIsVisible ? 'bottom-0 translate-y-0' : 'bottom-50% translate-y-1/2']"
               >
                 <div class="relative h-full w-full">
-                  <div class="absolute left-2 top-2 rounded-xl bg-gray-900/50 px-4 py-3 text-white group-hover:scale-110">
+                  <div class="absolute left-2 top-2 z-10 rounded-xl bg-gray-900/50 px-4 py-3 text-white group-hover:scale-110">
                     {{ indexTwoContent.rightInfo[3].title }}
                   </div>
+                  <img class="absolute z-1 block h-full w-full rounded-3xl object-cover object-center" :src="indexTwoContent.rightInfo[3].imgUrl">
                 </div>
               </div>
             </div>
@@ -160,30 +167,34 @@ const indexThreeContent = ref({
             <div class="w-full flex items-center overflow-x-auto">
               <div class="mr-4 h-62 w-62 shrink-0 rounded-3xl bg-[#7559ff] shadow-xl backdrop-blur-xl">
                 <div class="relative h-full w-full">
-                  <div class="absolute left-2 top-2 rounded-xl bg-gray-900/50 px-4 py-3 text-white">
+                  <div class="absolute left-2 top-2 z-10 rounded-xl bg-gray-900/50 px-4 py-3 text-white">
                     {{ indexTwoContent.rightInfo[0].title }}
                   </div>
+                  <img class="absolute z-1 block h-full w-full object-cover object-center" :src="indexTwoContent.rightInfo[0].imgUrl">
                 </div>
               </div>
               <div class="mr-4 h-62 w-62 shrink-0 rounded-3xl bg-[#00bf8f] shadow-xl backdrop-blur-xl">
                 <div class="relative h-full w-full">
-                  <div class="absolute left-2 top-2 rounded-xl bg-gray-900/50 px-4 py-3 text-white">
+                  <div class="absolute left-2 top-2 z-10 rounded-xl bg-gray-900/50 px-4 py-3 text-white">
                     {{ indexTwoContent.rightInfo[1].title }}
                   </div>
+                  <img class="absolute z-1 block h-full w-full object-cover object-center" :src="indexTwoContent.rightInfo[1].imgUrl">
                 </div>
               </div>
               <div class="mr-4 h-62 w-62 shrink-0 rounded-3xl bg-[#458fff] shadow-xl backdrop-blur-xl">
                 <div class="relative h-full w-full">
-                  <div class="absolute left-2 top-2 rounded-xl bg-gray-900/50 px-4 py-3 text-white">
+                  <div class="absolute left-2 top-2 z-10 rounded-xl bg-gray-900/50 px-4 py-3 text-white">
                     {{ indexTwoContent.rightInfo[2].title }}
                   </div>
+                  <img class="absolute z-1 block h-full w-full object-cover object-center" :src="indexTwoContent.rightInfo[2].imgUrl">
                 </div>
               </div>
               <div class="mr-4 h-62 w-62 shrink-0 rounded-3xl bg-purple-600 shadow-xl backdrop-blur-xl">
                 <div class="relative h-full w-full">
-                  <div class="absolute left-2 top-2 rounded-xl bg-gray-900/50 px-4 py-3 text-white">
+                  <div class="absolute left-2 top-2 z-10 rounded-xl bg-gray-900/50 px-4 py-3 text-white">
                     {{ indexTwoContent.rightInfo[3].title }}
                   </div>
+                  <img class="absolute z-1 block h-full w-full object-cover object-center" :src="indexTwoContent.rightInfo[3].imgUrl">
                 </div>
               </div>
             </div>
@@ -197,7 +208,7 @@ const indexThreeContent = ref({
       </RoughNotation> -->
       <div class="relative isolate h-screen w-full overflow-hidden">
         <CssBackgroundBlack />
-        <img class="absolute inset-0 h-full w-full object-cover object-right -z-5" src="/images/index_3_bg.avif" alt="">
+        <img class="absolute inset-0 h-full w-full object-cover object-right -z-5" :src="indexThreeContent.bgImgUrl" alt="">
         <div class="absolute left-50% top-50% z-1 text-center -translate-x-1/2 -translate-y-1/2">
           <div class="mb-2 text-white font-semibold mobile:text-4xl pc:text-7xl">
             {{ indexThreeContent.subtitle }}

@@ -14,7 +14,7 @@ watch(
   { immediate: true },
 )
 
-const logo = ref('/logo.svg')
+const logo = ref('/favicon.svg')
 const navigation = [
   { name: 'Equipment', to: '/equipment', children: null },
   { name: 'Service', to: '/service', children: null },

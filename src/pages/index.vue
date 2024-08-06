@@ -4,6 +4,7 @@ defineOptions({ name: 'Index' })
 // 第一屏
 // 内容
 const indexOneContent = ref({
+  mobileBgImgUrl: '/images/index/index_1_mobile_bg.png',
   bgVideo: '/video/index_bg.mp4',
   title: 'Prosperous China Force the world',
   subtitle: 'Zhejiang Dingli has always implemented a green sustainable development strategy. Through modular research and development, digital management, and professional development, we have worked hard to build a future factory.',
@@ -48,6 +49,7 @@ const indexThreeContent = ref({
       <!-- index 1 -->
       <div relative h-svh>
         <CssBackgroundBlack />
+        <img class="absolute h-full w-full object-cover object-right -z-1 mobile:block pc:hidden" :src="indexOneContent.mobileBgImgUrl">
         <div class="absolute inset-x-0 top-0 h-full w-full transform-gpu overflow-hidden -z-5 pc:block mobile:hidden">
           <video class="h-full w-full object-fill" autoplay loop muted>
             <source :src="indexOneContent.bgVideo" type="video/mp4">
@@ -55,10 +57,10 @@ const indexThreeContent = ref({
         </div>
         <div class="mx-auto box-border h-full max-w-2xl flex items-center justify-center">
           <div class="text-center">
-            <div data-aos="fade" data-aos-delay="500" class="mb-10 text-4xl font-bold tracking-tight mobile:text-white pc:text-white">
+            <div data-aos="fade" data-aos-delay="500" class="mb-10 font-bold tracking-tight mobile:text-4xl pc:text-6xl mobile:text-white pc:text-white">
               {{ indexOneContent.title }}
             </div>
-            <div data-aos="fade" data-aos-delay="1000" class="text-xl leading-8 mobile:text-gray-300 pc:text-white">
+            <div data-aos="fade" data-aos-delay="1000" class="leading-8 mobile:text-xl pc:text-2xl mobile:text-gray-300 pc:text-white">
               {{ indexOneContent.subtitle }}
             </div>
           </div>

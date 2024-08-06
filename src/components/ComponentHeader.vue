@@ -14,7 +14,7 @@ watch(
   { immediate: true },
 )
 
-const logo = ref('/favicon.svg')
+const logo = ref('/logo.svg')
 const navigation = [
   { name: 'Equipment', to: '/equipment', children: null },
   { name: 'Service', to: '/service', children: null },
@@ -35,7 +35,7 @@ const language = ref(['简体中文', 'English'])
           <!-- logo -->
           <div class="flex items-center mobile:mr-4">
             <RouterLink to="/">
-              <img class="block h-8 w-8 hover:opacity-80" :src="logo" alt="logo" title="Back Home">
+              <img class="block h-8 w-32 hover:opacity-80" :src="logo" alt="logo" title="Back Home">
             </RouterLink>
           </div>
 
@@ -81,7 +81,7 @@ const language = ref(['简体中文', 'English'])
             <!-- logo -->
             <div class="flex items-center">
               <RouterLink to="/">
-                <img class="block h-8 w-8 hover:opacity-80" :src="logo" alt="logo">
+                <img class="block h-8 w-32 hover:opacity-80" :src="logo" alt="logo">
               </RouterLink>
             </div>
           </div>

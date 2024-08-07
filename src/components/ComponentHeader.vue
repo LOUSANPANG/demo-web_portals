@@ -129,10 +129,10 @@ const language = ref(['简体中文', 'English'])
               <DisclosureButton
                 v-for="navChild in item.children"
                 :key="navChild.name"
-                as="a"
-                :href="navChild.to"
+                as="div"
                 class="block rounded-md px-3 py-2 pl-6 text-base font-medium"
                 :class="[navChild.to === currentRoute ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white']"
+                @click="router.push(navChild.to)"
               >
                 {{ navChild.name }}
               </DisclosureButton>
@@ -142,10 +142,10 @@ const language = ref(['简体中文', 'English'])
           <!-- 导航 -->
           <DisclosureButton
             v-else
-            as="a"
-            :href="item.to"
+            as="div"
             class="block rounded-md px-3 py-2 text-base font-medium"
             :class="[item.to === currentRoute ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white']"
+            @click="router.push(item.to)"
           >
             {{ item.name }}
           </DisclosureButton>

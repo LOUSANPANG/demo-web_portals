@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 const mapInfo = ref({
-  locationUrl: '/images/location.png',
-  locationMobileUrl: '/images/location_mobile.png',
+  locationUrl: '/images/contact/location.png',
+  locationMobileUrl: '/images/contact/location_mobile.png',
   address: '140 meters east of Beiwai Ring Road and Jing Er Road, Jinan District, Jinan City, Shandong Province',
   email: 'HR@CNDINGLI.COM',
   phone: '18660191511',

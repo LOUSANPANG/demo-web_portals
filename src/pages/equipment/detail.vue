@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import { Swiper, SwiperSlide } from 'swiper/vue'
-import { Autoplay, EffectCoverflow } from 'swiper/modules'
-import 'swiper/css'
-import 'swiper/css/effect-coverflow'
+// import { Swiper, SwiperSlide } from 'swiper/vue'
+// import { Autoplay, EffectCoverflow } from 'swiper/modules'
+// import 'swiper/css'
+// import 'swiper/css/effect-coverflow'
 
-const { width: windowWidth } = useWindowSize()
+// const { width: windowWidth } = useWindowSize()
 
 // const query = useRoute('/information/detail').query
 const details = ref({
@@ -13,47 +13,22 @@ const details = ref({
   powerSource: '1',
   workHeight: '44.44m',
   workWidth: '25.60m',
-  workWeight: '300kg/454kg',
+  workLoad: '300kg/454kg',
   imgUrl: '/images/equipment/lvhejindanzhushi_detail.png',
 })
-function equipmentPowerSource(powerSource: string) {
-  switch (powerSource) {
-    case '1':
-      return {
-        shadow: 'shadow-orange-100',
-        background: 'bg-orange-100',
-        name: '柴油',
-      }
-      break
-    case '2':
-      return {
-        shadow: 'shadow-green-100',
-        background: 'bg-green-100',
-        name: '能源',
-      }
-      break
-    default:
-      return {
-        shadow: 'shadow-blue-100',
-        background: 'bg-blue-100',
-        name: '混动',
-      }
-      break
-  }
-}
 </script>
 
 <template>
   <PageLayout>
     <div v-if="details.id">
       <!-- 产品信息概况 -->
-      <div class="group box-border cursor-pointer rounded-md p-4 pc:grid pc:grid-cols-2 mobile:block pc:gap-4" :class="equipmentPowerSource(details.powerSource).background">
+      <div class="group box-border cursor-pointer rounded-md bg-gray-200 p-4 pc:grid pc:grid-cols-2 mobile:block pc:gap-4">
         <!-- 信息 -->
         <div class="h-full w-full pc:flex pc:items-center">
           <dl class="w-full text-base -my-3 divide-y divide-gray-100">
             <!-- 概况 -->
             <div class="grid py-3 mobile:grid-cols-1 pc:grid-cols-3 mobile:gap-1 pc:gap-4">
-              <dt class="text-gray-900 font-medium">
+              <dt class="text-gray-900 font-900">
                 名称
               </dt>
               <dd class="text-gray-700 pc:col-span-2">
@@ -61,7 +36,7 @@ function equipmentPowerSource(powerSource: string) {
               </dd>
             </div>
             <div class="grid py-3 mobile:grid-cols-1 pc:grid-cols-3 mobile:gap-1 pc:gap-4">
-              <dt class="text-gray-900 font-medium">
+              <dt class="text-gray-900 font-900">
                 最大工作高度
               </dt>
               <dd class="text-gray-700 pc:col-span-2">
@@ -69,7 +44,7 @@ function equipmentPowerSource(powerSource: string) {
               </dd>
             </div>
             <div class="grid py-3 mobile:grid-cols-1 pc:grid-cols-3 mobile:gap-1 pc:gap-4">
-              <dt class="text-gray-900 font-medium">
+              <dt class="text-gray-900 font-900">
                 最大作业幅度
               </dt>
               <dd class="text-gray-700 pc:col-span-2">
@@ -77,15 +52,15 @@ function equipmentPowerSource(powerSource: string) {
               </dd>
             </div>
             <div class="grid py-3 mobile:grid-cols-1 pc:grid-cols-3 mobile:gap-1 pc:gap-4">
-              <dt class="text-gray-900 font-medium">
+              <dt class="text-gray-900 font-900">
                 安全工作载荷
               </dt>
               <dd class="text-gray-700 pc:col-span-2">
-                {{ details.workWeight }}
+                {{ details.workLoad }}
               </dd>
             </div>
             <div class="grid py-3 mobile:grid-cols-1 pc:grid-cols-3 mobile:gap-1 pc:gap-4">
-              <dt class="text-gray-900 font-medium">
+              <dt class="text-gray-900 font-900">
                 整机重量
               </dt>
               <dd class="text-gray-700 pc:col-span-2">
@@ -106,11 +81,11 @@ function equipmentPowerSource(powerSource: string) {
       <div class="w-ful my-8 border-t border-gray-100 py-4">
         <dl class="text-base -my-3 divide-y divide-gray-100">
           <!-- 产品亮点 -->
-          <details class="group [&_summary::-webkit-details-marker]:hidden">
+          <details class="group [&_summary::-webkit-details-marker]:hidden" open>
             <summary
               class="flex cursor-pointer items-center justify-between rounded py-3 hover:bg-gray-100"
             >
-              <dt class="text-gray-900 font-medium">
+              <dt class="text-gray-900 font-900">
                 产品亮点
               </dt>
               <dd class="i-carbon-chevron-down group-open:i-carbon-chevron-up h-5 w-5 text-gray-700" />
@@ -125,11 +100,11 @@ function equipmentPowerSource(powerSource: string) {
             </ul>
           </details>
           <!-- 产品参数 -->
-          <details class="group [&_summary::-webkit-details-marker]:hidden">
+          <details class="group [&_summary::-webkit-details-marker]:hidden" open>
             <summary
               class="flex cursor-pointer items-center justify-between rounded py-3 hover:bg-gray-100"
             >
-              <dt class="text-gray-900 font-medium">
+              <dt class="text-gray-900 font-900">
                 产品参数
               </dt>
               <dd class="i-carbon-chevron-down group-open:i-carbon-chevron-up h-5 w-5 text-gray-700" />
@@ -161,7 +136,7 @@ function equipmentPowerSource(powerSource: string) {
       </div>
 
       <!-- 相关产品 -->
-      <div class="w-ful my-8 flex justify-center">
+      <!-- <div class="w-ful my-8 flex justify-center">
         <Swiper
           class="mobile:h-50 pc:h-70"
           effect="coverflow"
@@ -191,7 +166,7 @@ function equipmentPowerSource(powerSource: string) {
             <img src="/images/equipment/tuochequbishi_detail.png">
           </SwiperSlide>
         </Swiper>
-      </div>
+      </div> -->
       <!-- /end -->
     </div>
   </PageLayout>

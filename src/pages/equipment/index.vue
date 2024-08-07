@@ -1,9 +1,28 @@
 <script setup lang="ts">
-const currentPage = ref(1) // 当前页
-const pageSize = ref(0) // 分页数
-const currentEquipments = ref<Array<{ id: number, [propName: string]: any }>>([]) // 当前页的视频数
+// 筛选
+const filterSelectData = ref([
+  {
+    title: '产品系列',
+    labelList: [{ label: '臂式高空作业平台', checked: true, value: '1' }, { label: '剪叉式高空作业平台', checked: false, value: '2' }, { label: '桅柱式高空作业平台', checked: false, value: '3' }, { label: '差异化高空作业平台', checked: false, value: '4' }],
+  },
+  {
+    title: '动力源',
+    labelList: [{ label: '电动', checked: true, value: '1' }, { label: '柴动', checked: false, value: '2' }, { label: '混动', checked: false, value: '3' }],
+  },
+  {
+    title: '工作高度',
+    labelList: [{ label: '0-100m', checked: true, value: '1' }, { label: '100-200m', checked: false, value: '2' }, { label: '200m以上', checked: false, value: '3' }],
+  },
+],
+)
+// mobile filter
+const filterModal = ref(false)
+
+// const currentPage = ref(1) // 当前页
+// const pageSize = ref(0) // 分页数
+const currentEquipments = ref<Array<{ id: number, [propName: string]: any }>>([]) // 当前页的设备数
 watchEffect(async () => {
-  pageSize.value = 5
+  // pageSize.value = 5
   currentEquipments.value = [
     { id: 1, title: '铝合金单柱式升降机', powerSource: '1', workHeight: '44.44m', workWidth: '25.60m', workLoad: '300kg/454kg', imgUrl: '/images/equipment/lvhejindanzhushi.png' },
     { id: 2, title: '履带式剪叉升降机', powerSource: '2', workHeight: '44.44m', workWidth: '25.60m', workLoad: '300kg/454kg', imgUrl: '/images/equipment/fudaishijiancha.png' },
@@ -18,6 +37,7 @@ watchEffect(async () => {
     { id: 11, title: '自行桅杆式升降机', powerSource: '1', workHeight: '44.44m', workWidth: '25.60m', workLoad: '300kg/454kg', imgUrl: '/images/equipment/zixingguiganshi.png' },
   ]
 })
+// 判断能源类型
 function equipmentPowerSource(powerSource: string) {
   switch (powerSource) {
     case '1':
@@ -43,20 +63,15 @@ function equipmentPowerSource(powerSource: string) {
       break
   }
 }
-
-const filterSelectData = ref({ title: 'Classify', labelList: [{ label: 'AAAA', checked: true, value: '' }, { label: 'BBB', checked: false, value: '' }] })
-
-// 手机筛选打开弹窗
-const filterModal = ref(false)
 </script>
 
 <template>
   <PageLayout>
-    <div class="h-73vh w-full flex flex-col justify-between mobile:px-0 pc:px-8">
+    <div class="h-76vh w-full flex flex-col justify-between mobile:px-0 pc:px-8">
       <!-- 搜索、筛选 -->
       <!-- PC -->
       <div class="w-full items-center justify-end mobile:hidden pc:flex">
-        <UiDropdownCheckbox :data="filterSelectData" />
+        <UiDropdownCheckbox v-for="item in filterSelectData" :key="item.title" :data="item" />
         <UiInputSearch />
       </div>
       <!-- mobile -->
@@ -67,7 +82,7 @@ const filterModal = ref(false)
             <div class="absolute right-0 top-0 z-1 box-border h-full w-80% rounded-l-lg bg-white px-4 py-4 shadow" @click.stop="() => {}">
               <div class="i-carbon-close-large absolute right-4 top-4 z-5 h-6 w-6 text-orange-400" @click="filterModal = false" />
               <div class="h-full w-full overflow-y-auto">
-                <UiCheckbox :data="filterSelectData" />
+                <UiCheckbox v-for="item in filterSelectData" :key="item.title" :data="item" />
               </div>
             </div>
           </div>
@@ -136,7 +151,7 @@ const filterModal = ref(false)
       </div>
 
       <!-- 分页 -->
-      <ComponentPagination :page-size="pageSize" @emit-change-page="page => currentPage = page" />
+      <!-- <ComponentPagination :page-size="pageSize" @emit-change-page="page => currentPage = page" /> -->
     </div>
   </PageLayout>
 </template>

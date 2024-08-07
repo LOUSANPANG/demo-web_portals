@@ -1,4 +1,6 @@
 <script setup lang="ts" generic="T extends any, O extends any">
+import { strSplice } from '~/utils/tools.ts'
+
 defineOptions({ name: 'Index' })
 
 // 第一屏
@@ -7,7 +9,7 @@ const indexOneContent = ref({
   mobileBgImgUrl: '/images/index/index_1_mobile_bg.png',
   bgVideo: '/video/index_bg.mp4',
   title: 'Prosperous China Force the world',
-  subtitle: 'Zhejiang Dingli has always implemented a green sustainable development strategy. Through modular research and development, digital management, and professional development, we have worked hard to build a future factory.',
+  subtitle: 'BeiGong has always implemented a green sustainable development strategy. Through modular research and development, digital management, and professional development, we have worked hard to build a future factory.',
 })
 
 // 第二屏
@@ -15,13 +17,13 @@ const indexOneContent = ref({
 const indexTwoContent = ref({
   bgImgUrl: '/images/index/index_2_bg.webp',
   title: 'Equipment',
-  subtitle: 'Boom Lifts、Scissor Lifts、Vertical Lifts、Customization...',
+  subtitle: strSplice('Aluminum alloy single-column lift、crawler scissor lift、Double-column aluminum alloy lift、sleeve lift、trailer curved arm lift、boarding bridge unloading platform Mobile scissor lift、Self-scissor lift、self-curved arm lift、self-mast lift', { pcStrLen: 300, mobileStrLen: 100 }),
   leftViewMoreBtn: { name: 'Equipment center', link: '/equipment' },
   rightInfo: [
-    { title: 'Boom Lifts', imgUrl: '/images/index/index_2_bishi.jpg' },
-    { title: 'Scissor Lifts', imgUrl: '/images/index/index_2_jianchashi.jpg' },
-    { title: 'Vertical Lifts', imgUrl: '/images/index/index_2_chuizhishi.jpg' },
-    { title: 'Customization', imgUrl: '/images/index/index_2_dingzhi.jpg' },
+    { title: 'Boom Lifts', imgUrl: '/images/index/index_2_bishi.png' },
+    { title: 'Scissor Lifts', imgUrl: '/images/index/index_2_jianchashi.png' },
+    { title: 'Vertical Lifts', imgUrl: '/images/index/index_2_chuizhishi.png' },
+    { title: 'Customization', imgUrl: '/images/index/index_2_dingzhi.png' },
   ],
 })
 // 监听中线元素显示
@@ -35,10 +37,10 @@ const indexThreeContent = ref({
   title: 'Service',
   subtitle: 'Company',
   infoList: [
-    { title: '', imgUrl: '/images/service/index_3_service1.jpg' },
-    { title: '', imgUrl: '/images/service/index_3_service2.jpg' },
-    { title: '', imgUrl: '/images/service/index_3_service3.jpg' },
-    { title: '', imgUrl: '/images/service/index_3_service4.jpg' },
+    { title: '值得信赖的', describe: '专业至上，以诚待客，效率争先，赢得客户信赖', imgUrl: '/images/index/index_3_service1.jpg' },
+    { title: '可持续的', describe: '保持服务可持续性，建立长期稳定的客户关系', imgUrl: '/images/index/index_3_service2.jpg' },
+    { title: '有温度的', describe: '贴心陪伴，密切互动,与客户共成长，传递企业温暖', imgUrl: '/images/index/index_3_service3.jpg' },
+    { title: '有品质的', describe: '创造高品质、差异化的服务体验，实现服务增值', imgUrl: '/images/index/index_3_service4.jpg' },
   ],
 })
 </script>
@@ -75,7 +77,7 @@ const indexThreeContent = ref({
           <!-- =================pc -->
           <div class="relative w-full items-center justify-center mobile:hidden pc:flex">
             <!-- left -->
-            <div class="relative h-80 w-100 rounded-3xl bg-orange-500 shadow-xl backdrop-blur-xl">
+            <div class="relative h-80 w-100 rounded-3xl bg-orange-400 shadow-xl backdrop-blur-xl">
               <div class="absolute left-0 top-0 z-1 h-full w-full flex flex-col justify-between p-8">
                 <div>
                   <div class="mb-2 text-white">
@@ -87,7 +89,7 @@ const indexThreeContent = ref({
                 </div>
                 <RouterLink :to="indexTwoContent.leftViewMoreBtn.link" class="flex items-baseline text-base text-white font-semibold leading-6 hover:text-gray-900">
                   {{ indexTwoContent.leftViewMoreBtn.name }}
-                  <div class="animate__animated animate__headShake animate__infinite animate__infinite ml-0.5 text-sm">
+                  <div class="animate__animated animate__headShake animate__infinite ml-0.5 text-sm">
                     →
                   </div>
                 </RouterLink>
@@ -167,36 +169,17 @@ const indexThreeContent = ref({
             </div>
             <!-- bottom -->
             <div class="w-full flex items-center overflow-x-auto">
-              <div class="mr-4 h-62 w-62 shrink-0 rounded-3xl bg-[#7559ff] shadow-xl backdrop-blur-xl">
+              <div
+                v-for="(item, key) in indexTwoContent.rightInfo"
+                :key="key"
+                class="bg-orange-15 mr-4 h-62 w-62 shrink-0 rounded-3xl shadow-xl backdrop-blur-xl"
+                data-aos="fade" :data-aos-delay="(key + 1) * 100"
+              >
                 <div class="relative h-full w-full">
                   <div class="absolute left-2 top-2 z-10 rounded-xl bg-gray-900/50 px-4 py-3 text-white">
-                    {{ indexTwoContent.rightInfo[0].title }}
+                    {{ item.title }}
                   </div>
-                  <img class="absolute z-1 block h-full w-full object-cover object-center" :src="indexTwoContent.rightInfo[0].imgUrl">
-                </div>
-              </div>
-              <div class="mr-4 h-62 w-62 shrink-0 rounded-3xl bg-[#00bf8f] shadow-xl backdrop-blur-xl">
-                <div class="relative h-full w-full">
-                  <div class="absolute left-2 top-2 z-10 rounded-xl bg-gray-900/50 px-4 py-3 text-white">
-                    {{ indexTwoContent.rightInfo[1].title }}
-                  </div>
-                  <img class="absolute z-1 block h-full w-full object-cover object-center" :src="indexTwoContent.rightInfo[1].imgUrl">
-                </div>
-              </div>
-              <div class="mr-4 h-62 w-62 shrink-0 rounded-3xl bg-[#458fff] shadow-xl backdrop-blur-xl">
-                <div class="relative h-full w-full">
-                  <div class="absolute left-2 top-2 z-10 rounded-xl bg-gray-900/50 px-4 py-3 text-white">
-                    {{ indexTwoContent.rightInfo[2].title }}
-                  </div>
-                  <img class="absolute z-1 block h-full w-full object-cover object-center" :src="indexTwoContent.rightInfo[2].imgUrl">
-                </div>
-              </div>
-              <div class="mr-4 h-62 w-62 shrink-0 rounded-3xl bg-purple-600 shadow-xl backdrop-blur-xl">
-                <div class="relative h-full w-full">
-                  <div class="absolute left-2 top-2 z-10 rounded-xl bg-gray-900/50 px-4 py-3 text-white">
-                    {{ indexTwoContent.rightInfo[3].title }}
-                  </div>
-                  <img class="absolute z-1 block h-full w-full object-cover object-center" :src="indexTwoContent.rightInfo[3].imgUrl">
+                  <img class="absolute z-1 block h-full w-full rounded-3xl object-cover object-center" :src="item.imgUrl">
                 </div>
               </div>
             </div>
@@ -205,53 +188,44 @@ const indexThreeContent = ref({
       </div>
 
       <!-- index 3 -->
-      <!--  data-aos="fade" data-aos-delay="300" -->
-      <!-- <RoughNotation type="underline" :is-show="indexThreeIsVisible">
-      </RoughNotation> -->
-      <div class="relative isolate h-screen w-full overflow-hidden">
+      <div class="relative isolate w-full overflow-hidden mobile:py-10 pc:py-20">
+        <!-- bg -->
         <CssBackgroundBlack />
         <img class="absolute inset-0 h-full w-full object-cover object-right -z-5" :src="indexThreeContent.bgImgUrl" alt="">
-        <div class="absolute left-50% top-50% z-1 text-center -translate-x-1/2 -translate-y-1/2">
-          <div class="mb-2 text-white font-semibold mobile:text-4xl pc:text-7xl">
-            {{ indexThreeContent.subtitle }}
+        <!-- content -->
+        <div class="relative mx-auto mobile:w-90% pc:w-7xl">
+          <div class="mobile:mb-10 pc:mb-20">
+            <div class="mb-2 text-white font-semibold mobile:text-4xl pc:text-7xl">
+              {{ indexThreeContent.subtitle }}
+            </div>
+            <div class="text-orange-500 font-bold mobile:text-6xl pc:text-9xl">
+              {{ indexThreeContent.title }}
+            </div>
           </div>
-          <div class="text-orange-500 font-bold mobile:text-6xl pc:text-9xl">
-            {{ indexThreeContent.title }}
-          </div>
-        </div>
-
-        <!-- =================pc -->
-        <div class="absolute left-50% top-0 z-10 h-full w-7xl pc:block mobile:hidden -translate-x-1/2">
-          <div data-aos="fade" data-aos-delay="300" class="absolute left-5% top-5% h-56 w-96 flex cursor-pointer items-center rounded-3xl shadow-2xl shadow-orange-100 transition-all hover:translate-y-0.5">
-            <img class="h-full w-full rounded-3xl" :src="indexThreeContent.infoList[0].imgUrl">
-          </div>
-          <div data-aos="fade" data-aos-delay="300" class="absolute right-5% top-20% h-56 w-96 flex cursor-pointer items-center rounded-3xl shadow-2xl shadow-orange-100 transition-all hover:translate-y-0.5">
-            <img class="h-full w-full rounded-3xl" :src="indexThreeContent.infoList[1].imgUrl">
-          </div>
-          <div data-aos="fade" data-aos-delay="300" class="absolute left-10% top-50% h-56 w-96 flex cursor-pointer items-center rounded-3xl shadow-2xl shadow-orange-100 transition-all hover:translate-y-0.5">
-            <img class="h-full w-full rounded-3xl" :src="indexThreeContent.infoList[2].imgUrl">
-          </div>
-          <div data-aos="fade" data-aos-delay="300" class="absolute bottom-5% right-10% h-56 w-96 flex cursor-pointer items-center rounded-3xl shadow-2xl shadow-orange-100 transition-all hover:translate-y-0.5">
-            <img class="h-full w-full rounded-3xl" :src="indexThreeContent.infoList[3].imgUrl">
-          </div>
-        </div>
-        <!-- =================mobile -->
-        <div class="absolute left-50% top-0 z-10 h-full w-90% flex-col flex-col items-center justify-around pc:hidden mobile:flex -translate-x-1/2">
-          <div data-aos="fade" data-aos-delay="300" class="w-full flex items-center justify-end">
-            <img class="h-36 w-66 rounded-xl shadow shadow-orange-100" :src="indexThreeContent.infoList[0].imgUrl">
-          </div>
-          <div data-aos="fade" data-aos-delay="300" class="w-full flex items-center">
-            <img class="h-36 w-66 rounded-xl shadow shadow-orange-100" :src="indexThreeContent.infoList[1].imgUrl">
-          </div>
-          <div data-aos="fade" data-aos-delay="300" class="w-full flex items-center justify-end">
-            <img class="h-36 w-66 rounded-xl shadow shadow-orange-100" :src="indexThreeContent.infoList[2].imgUrl">
-          </div>
-          <div data-aos="fade" data-aos-delay="300" class="w-full flex items-center">
-            <img class="h-36 w-66 rounded-xl shadow shadow-orange-100" :src="indexThreeContent.infoList[3].imgUrl">
+          <div class="w-full flex overflow-x-auto py-4 pc:justify-between mobile:justify-around">
+            <RouterLink
+              v-for="(item, key) in indexThreeContent.infoList"
+              :key="item.title"
+              to="/service"
+              data-aos="fade" :data-aos-delay="(key + 1) * 100"
+              class="relative flex-shrink-0 cursor-pointer rounded-md shadow shadow-orange-100 transition-all mobile:mr-5 pc:mr-0 mobile:h-90 mobile:w-50 pc:h-130 pc:w-75 hover:shadow-md hover:-translate-y-2"
+            >
+              <img class="h-full w-full rounded-md" :src="item.imgUrl">
+              <div class="absolute left-5% top-5 w-90% text-white font-700 mobile:text-lg pc:text-xl">
+                {{ item.title }}
+              </div>
+              <div class="absolute left-5% top-15 w-90% text-white mobile:text-xs pc:text-sm">
+                {{ item.describe }}
+              </div>
+              <div class="animate__animated animate__headShake animate__infinite absolute bottom-5 right-5% text-sm text-white">
+                →
+              </div>
+            </RouterLink>
           </div>
         </div>
+        <!-- /content -->
       </div>
-      <!-- /end -->
+      <!-- /end index3 -->
     </div>
   </div>
 </template>

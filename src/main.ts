@@ -1,7 +1,6 @@
 import { createApp } from 'vue'
 import { createRouter, createWebHistory } from 'vue-router/auto'
 import AOS from 'aos'
-import VueRoughNotation from 'vue-rough-notation'
 import VueVideoPlayer from '@videojs-player/vue'
 import App from './App.vue'
 
@@ -15,12 +14,6 @@ import './styles/main.css'
 const app = createApp(App)
 
 AOS.init({ duration: 800 })
-app.use(VueRoughNotation, {
-  tag: 'div',
-  multiline: true,
-  color: '#f97316',
-  animationDuration: 3000,
-})
 app.use(VueVideoPlayer)
 
 const router = createRouter({

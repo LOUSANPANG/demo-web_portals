@@ -100,44 +100,44 @@ const indexThreeContent = ref({
             <!-- right -->
             <div class="relative h-150 w-135">
               <div
-                class="group absolute left-50% z-1 h-62 w-62 rounded-3xl bg-[#7559ff] backdrop-blur-xl transition-all duration-500 delay-0 ease-linear -translate-x-1/2"
+                class="group absolute left-50% z-1 h-62 w-62 rounded-3xl bg-[#7559ff] backdrop-blur-xl duration-300 ease-out -translate-x-1/2"
                 :class="[indexTwoMidIsVisible ? 'top-0 translate-y-0' : 'top-50% -translate-y-1/2']"
               >
                 <div class="relative h-full w-full">
-                  <div class="absolute left-2 top-2 z-10 rounded-xl bg-gray-900/50 px-4 py-3 text-white pc:group-hover:scale-110">
+                  <div class="absolute left-2 top-2 z-10 rounded-xl bg-gray-900/50 px-4 py-3 text-white duration-300 ease-out pc:group-hover:scale-110">
                     {{ indexTwoContent.rightInfo[0].title }}
                   </div>
                   <img class="absolute z-1 block h-full w-full rounded-3xl object-cover object-center" :src="indexTwoContent.rightInfo[0].imgUrl">
                 </div>
               </div>
               <div
-                class="group absolute top-50% z-2 h-62 w-62 rounded-3xl bg-[#00bf8f] backdrop-blur-xl transition-all duration-500 delay-0 ease-linear -translate-y-1/2"
+                class="group absolute top-50% z-2 h-62 w-62 rounded-3xl bg-[#00bf8f] backdrop-blur-xl duration-300 ease-out -translate-y-1/2"
                 :class="[indexTwoMidIsVisible ? 'left-0 translate-x-0' : 'left-50% -translate-x-1/2']"
               >
                 <div class="relative h-full w-full">
-                  <div class="absolute left-2 top-2 z-10 rounded-xl bg-gray-900/50 px-4 py-3 text-white group-hover:scale-110">
+                  <div class="absolute left-2 top-2 z-10 rounded-xl bg-gray-900/50 px-4 py-3 text-white duration-300 ease-out group-hover:scale-110">
                     {{ indexTwoContent.rightInfo[1].title }}
                   </div>
                   <img class="absolute z-1 block h-full w-full rounded-3xl object-cover object-center" :src="indexTwoContent.rightInfo[1].imgUrl">
                 </div>
               </div>
               <div
-                class="group absolute top-50% z-3 h-62 w-62 rounded-3xl bg-[#458fff] backdrop-blur-xl transition-all duration-500 delay-0 ease-linear -translate-y-1/2"
+                class="group absolute top-50% z-3 h-62 w-62 rounded-3xl bg-[#458fff] backdrop-blur-xl duration-300 ease-out -translate-y-1/2"
                 :class="[indexTwoMidIsVisible ? 'right-0 translate-x-0' : 'right-50% translate-x-1/2']"
               >
                 <div class="relative h-full w-full">
-                  <div class="absolute left-2 top-2 z-10 rounded-xl bg-gray-900/50 px-4 py-3 text-white group-hover:scale-110">
+                  <div class="absolute left-2 top-2 z-10 rounded-xl bg-gray-900/50 px-4 py-3 text-white duration-300 ease-out group-hover:scale-110">
                     {{ indexTwoContent.rightInfo[2].title }}
                   </div>
                   <img class="absolute z-1 block h-full w-full rounded-3xl object-cover object-center" :src="indexTwoContent.rightInfo[2].imgUrl">
                 </div>
               </div>
               <div
-                class="group absolute left-50% z-4 h-62 w-62 rounded-3xl bg-purple-600 backdrop-blur-xl transition-all duration-500 delay-0 ease-linear -translate-x-1/2"
+                class="group absolute left-50% z-4 h-62 w-62 rounded-3xl bg-purple-600 backdrop-blur-xl duration-300 ease-out -translate-x-1/2"
                 :class="[indexTwoMidIsVisible ? 'bottom-0 translate-y-0' : 'bottom-50% translate-y-1/2']"
               >
                 <div class="relative h-full w-full">
-                  <div class="absolute left-2 top-2 z-10 rounded-xl bg-gray-900/50 px-4 py-3 text-white group-hover:scale-110">
+                  <div class="absolute left-2 top-2 z-10 rounded-xl bg-gray-900/50 px-4 py-3 text-white duration-300 ease-out group-hover:scale-110">
                     {{ indexTwoContent.rightInfo[3].title }}
                   </div>
                   <img class="absolute z-1 block h-full w-full rounded-3xl object-cover object-center" :src="indexTwoContent.rightInfo[3].imgUrl">
@@ -208,16 +208,17 @@ const indexThreeContent = ref({
               :key="item.title"
               to="/service"
               data-aos="fade" :data-aos-delay="(key + 1) * 100"
-              class="relative flex-shrink-0 cursor-pointer rounded-md shadow shadow-orange-100 transition-all mobile:mr-5 pc:mr-0 mobile:h-90 mobile:w-50 pc:h-130 pc:w-75 hover:shadow-md hover:-translate-y-2"
+              class="group relative flex-shrink-0 cursor-pointer overflow-hidden rounded-md shadow shadow-orange-100 duration-300 ease-out mobile:mr-5 pc:mr-0 mobile:h-90 mobile:w-50 pc:h-130 pc:w-75 hover:shadow-md"
             >
               <img class="h-full w-full rounded-md" :src="item.imgUrl">
-              <div class="absolute left-5% top-5 w-90% text-white font-700 mobile:text-lg pc:text-xl">
+              <div class="absolute left-0 z-5 h-full w-full rounded-md bg-orange-500/95 duration-300 ease-out -bottom-100% group-hover:bottom-0" />
+              <div class="absolute left-5% top-5 z-10 w-90% text-white font-700 mobile:text-lg pc:text-xl">
                 {{ item.title }}
               </div>
-              <div class="absolute left-5% top-15 w-90% text-white mobile:text-xs pc:text-sm">
+              <div class="absolute left-5% top-15 z-10 w-90% text-white mobile:text-xs pc:text-sm">
                 {{ item.describe }}
               </div>
-              <div class="animate__animated animate__headShake animate__infinite absolute bottom-5 right-5% text-sm text-white">
+              <div class="animate__animated animate__headShake animate__infinite absolute bottom-5 right-5% z-10 text-sm text-white">
                 →
               </div>
             </RouterLink>

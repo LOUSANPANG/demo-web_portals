@@ -13,7 +13,6 @@
   "dependencies": {
     "@headlessui/vue": "^1.7.22",
     "@heroicons/vue": "^2.1.5",
-    "@videojs-player/vue": "^1.0.0",
     "@vueuse/core": "^10.9.0",
     "animate.css": "^4.1.1",
     "aos": "^2.3.4",
@@ -21,7 +20,6 @@
     "file-saver": "^2.0.5",
     "swiper": "^11.1.9",
     "typeit": "^8.8.4",
-    "video.js": "^8.16.1",
     "vue": "^3.4.27",
     "vue-router": "^4.3.2"
   },

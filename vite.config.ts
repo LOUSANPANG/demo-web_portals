@@ -16,6 +16,7 @@ export default defineConfig({
       '~/': `${path.resolve(__dirname, 'src')}/`,
     },
   },
+
   plugins: [
     VueMacros({
       defineOptions: false,
@@ -59,5 +60,16 @@ export default defineConfig({
     // https://github.com/antfu/unocss
     // see uno.config.ts for config
     UnoCSS(),
-  ]
+  ],
+
+  // build: {
+  //   rollupOptions: {
+  //     output: {
+  //       manualChunks(id) {
+  //         if (id.includes('node_modules'))
+  //           return id.toString().split('node_modules/.pnpm/')[1].split('/')[0].toString()
+  //       },
+  //     },
+  //   },
+  // },
 })

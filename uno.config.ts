@@ -5,6 +5,7 @@ import {
   presetUno,
   presetWebFonts,
 } from 'unocss'
+import { presetScrollbar } from 'unocss-preset-scrollbar'
 
 export default defineConfig({
   theme: {
@@ -27,9 +28,15 @@ export default defineConfig({
     presetWebFonts({
       fonts: {
         sans: 'DM Sans',
-        serif: 'DM Serif Display',
-        mono: 'DM Mono',
+        // serif: 'DM Serif Display',
+        // mono: 'DM Mono',
       },
+    }),
+    presetScrollbar({
+      scrollbarWidth: '6px',
+      scrollbarHeight: '6px',
+      scrollbarTrackRadius: '6px',
+      scrollbarThumbRadius: '6px',
     }),
   ],
 })

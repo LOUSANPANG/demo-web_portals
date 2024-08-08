@@ -1,4 +1,11 @@
 <script setup lang="ts">
+setTimeout(() => {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth',
+  })
+}, 500)
+
 const serviceInfo = ref({
   templateList: [
     {
@@ -52,7 +59,7 @@ const serviceInfo = ref({
     <!-- pc -->
     <div class="pt-10 pc:block mobile:hidden">
       <!-- 服务 -->
-      <div class="mb-20 flex justify-between">
+      <div class="animate__animated animate__zoomInUp mb-20 flex justify-around">
         <div class="min-h-full w-75 flex flex-col justify-between">
           <div class="mb-10 w-full">
             <img class="mb-3 block h-18 w-18" :src="serviceInfo.templateList[0].icon">
@@ -97,10 +104,14 @@ const serviceInfo = ref({
       </div>
       <!-- 案例 -->
       <div class="mx-auto w-200">
-        <div class="mb-6 w-full border-b py-4 text-2xl text-gray-800 font-700">
+        <div data-aos="fade" :data-aos-delay="100" class="mb-6 w-full border-b py-4 text-2xl text-gray-800 font-700">
           四项服务
         </div>
-        <div v-for="item in serviceInfo.serviceList" :key="item.title" class="group mx-auto mb-6 w-full cursor-pointer items-center justify-around rounded-lg bg-white px-4 py-8 shadow-md mobile:hidden pc:flex">
+        <div
+          v-for="(item, key) in serviceInfo.serviceList"
+          :key="item.title" class="group mx-auto mb-6 w-full cursor-pointer items-center justify-around rounded-lg bg-white px-4 py-8 shadow-md mobile:hidden pc:flex"
+          data-aos="fade-up" :data-aos-delay="(key + 1) * 100"
+        >
           <div class="h-60 w-96">
             <div class="mb-8 text-base text-gray-700 font-700 underline decoration-2 decoration-orange-500 underline-offset-8">
               {{ item.title }}
@@ -121,7 +132,12 @@ const serviceInfo = ref({
       <!-- 服务 -->
       <div class="mb-10">
         <img class="block w-full" src="/images/service/center.png">
-        <div v-for="item in serviceInfo.templateList" :key="item.title" class="mb-5 box-border w-full rounded-lg px-2 py-4 shadow">
+        <div
+          v-for="(item, key) in serviceInfo.templateList"
+          :key="item.title"
+          data-aos="fade-up" :data-aos-delay="(key + 1) * 100"
+          class="mb-5 box-border w-full rounded-lg px-2 py-4 shadow"
+        >
           <img class="mb-3 block h-10 w-10" :src="serviceInfo.templateList[1].icon">
           <div class="mb-6 text-base text-gray-800 font-700">
             {{ serviceInfo.templateList[1].title }}
@@ -134,10 +150,15 @@ const serviceInfo = ref({
 
       <!-- 案例 -->
       <div class="w-full">
-        <div class="mb-6 w-full border-b py-4 text-xl text-gray-800 font-700">
+        <div data-aos="fade" :data-aos-delay="100" class="mb-6 w-full border-b py-4 text-xl text-gray-800 font-700">
           四项服务
         </div>
-        <div v-for="item in serviceInfo.serviceList" :key="item.title" class="mb-4 w-full rounded-lg bg-white px-2 py-4 shadow-md mobile:block pc:hidden">
+        <div
+          v-for="(item, key) in serviceInfo.serviceList"
+          :key="item.title"
+          data-aos="fade-up" :data-aos-delay="(key + 1) * 100"
+          class="mb-4 w-full rounded-lg bg-white px-2 py-4 shadow-md mobile:block pc:hidden"
+        >
           <div class="h-50 w-full">
             <img class="h-full w-full rounded-lg object-cover object-center" :src="item.img">
           </div>

@@ -52,7 +52,7 @@ const submitInfo = ref({
     </div>
 
     <!-- form -->
-    <div class="box-border flex flex-col overflow-y-auto bg-white py-4 mobile:w-full pc:h-75vh pc:w-1/3 mobile:px-2 pc:px-4">
+    <div class="scrollbar box-border flex flex-col overflow-y-auto bg-white py-4 mobile:w-full pc:h-75vh pc:w-1/3 mobile:px-2 pc:px-4">
       <h2 class="mb-1 text-gray-900 font-medium mobile:text-base pc:text-lg">
         {{ submitInfo.title }}
       </h2>

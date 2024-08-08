@@ -50,9 +50,13 @@ const language = ref(['简体中文', 'English'])
                 <transition enter-active-class="transition ease-out duration-100" enter-from-class="transform opacity-0 scale-95" enter-to-class="transform opacity-100 scale-100" leave-active-class="transition ease-in duration-75" leave-from-class="transform opacity-100 scale-100" leave-to-class="transform opacity-0 scale-95">
                   <MenuItems class="absolute left-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
                     <MenuItem v-for="navChild in item.children" :key="navChild.name" v-slot="{ active }">
-                      <RouterLink :to="navChild.to" class="block px-4 py-2 text-base text-gray-700" :class="[active ? 'bg-gray-100' : '']">
+                      <button
+                        class="box-border block w-full px-4 py-2 text-left text-base text-gray-700"
+                        :class="[active ? 'bg-gray-100' : '']"
+                        @click="router.push(navChild.to)"
+                      >
                         {{ navChild.name }}
-                      </RouterLink>
+                      </button>
                     </MenuItem>
                   </MenuItems>
                 </transition>

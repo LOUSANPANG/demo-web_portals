@@ -13,7 +13,7 @@ const blogDetails = ref({
   <PageLayout>
     <div v-if="blogDetails.id" class="w-full mobile:block pc:flex pc:justify-around">
       <img :src="blogDetails.imgUrl" class="rounded-lg shadow-lg shadow-orange-50 mobile:mb-6 pc:mb-0 mobile:h-40 mobile:w-full pc:h-120 pc:w-3/7">
-      <div class="overflow-y-auto mobile:h-50vh pc:h-70vh pc:w-3/7">
+      <div class="scrollbar overflow-y-auto mobile:h-50vh pc:h-70vh pc:w-3/7">
         <div class="mb-2 text-sm text-orange-400">
           {{ blogDetails.date }}
         </div>

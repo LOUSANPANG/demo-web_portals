@@ -21,7 +21,7 @@ watchEffect(async () => {
       </div>
 
       <!-- 内容 -->
-      <div class="my-6 w-full grow overflow-y-auto">
+      <div class="scrollbar my-6 w-full grow overflow-y-auto">
         <div class="grid mobile:grid-cols-2 pc:grid-cols-4 mobile:gap-4 pc:gap-8">
           <RouterLink
             v-for="item in currentBlogs"

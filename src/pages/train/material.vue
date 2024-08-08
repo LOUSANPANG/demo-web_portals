@@ -5,9 +5,9 @@ const currentFiles = ref<Array<{ id: number, [propName: string]: any }>>([]) // 
 watchEffect(async () => {
   pageSize.value = 5
   currentFiles.value = [
-    { date: 'July 19, 2021', title: 'File1', id: 1 },
-    { date: 'July 19, 2021', title: 'File2', id: 2 },
-    { date: 'July 19, 2021', title: 'File3', id: 3 },
+    { title: 'File1', describe: 'This is the XX device manual', id: 1 },
+    { title: 'File2', describe: 'This is the XX device manual，This is the XX device manual', id: 2 },
+    { title: 'File3', describe: 'This is the XX device manual，This is the XX device manual，This is the XX device manual', id: 3 },
   ]
 })
 </script>
@@ -22,37 +22,33 @@ watchEffect(async () => {
       </div>
 
       <!-- 内容 -->
-      <div class="my-6 w-full grow overflow-y-auto">
-        <table class="min-w-full bg-white text-sm divide-y-2 divide-gray-200">
-          <thead class="ltr:text-left rtl:text-right">
-            <tr>
-              <th class="whitespace-nowrap px-4 py-2 text-gray-900 font-medium">
-                Title
-              </th>
-              <th class="whitespace-nowrap px-4 py-2 text-gray-900 font-medium">
-                Date
-              </th>
-              <th class="px-4 py-2" />
-            </tr>
-          </thead>
+      <div class="scrollbar my-6 w-full grow overflow-y-auto">
+        <div class="min-w-full bg-white text-sm">
+          <div class="flex items-center border-b border-b-2 border-gray-200 px-4 py-2 text-gray-900 font-medium">
+            <div class="mobile:w-25% pc:w-30%">
+              Title
+            </div>
+            <div class="mobile:w-55% pc:w-50%">
+              describe
+            </div>
+            <div class="w-20%" />
+          </div>
           <!-- File list -->
-          <tbody class="divide-y divide-gray-200">
-            <tr v-for="item in currentFiles" :key="item.id">
-              <td class="whitespace-nowrap px-4 py-2 text-center text-gray-900 font-medium">
-                {{ item.title }}
-              </td>
-              <td class="whitespace-nowrap px-4 py-2 text-center text-gray-700">
-                {{ item.date }}
-              </td>
-              <td class="whitespace-nowrap px-4 py-2 text-center">
-                <div class="inline-block cursor-pointer rounded bg-orange-600 px-4 py-2 text-xs text-white font-medium hover:bg-orange-700">
-                  Download
-                </div>
-              </td>
-            </tr>
-          </tbody>
+          <div v-for="item in currentFiles" :key="item.id" class="w-full flex items-center border-b border-gray-200 px-4 py-2 text-gray-700">
+            <div class="truncate mobile:w-25% pc:w-30%">
+              {{ item.title }}
+            </div>
+            <div class="truncate mobile:w-55% pc:w-50%">
+              {{ item.describe }}
+            </div>
+            <div class="w-20% flex items-center justify-end">
+              <div class="h-6 w-15 flex cursor-pointer items-center justify-center rounded bg-orange-600 hover:bg-orange-700">
+                <div class="i-carbon-cloud-download h-5 w-5 text-white font-medium" />
+              </div>
+            </div>
+          </div>
           <!-- /end File list -->
-        </table>
+        </div>
       </div>
 
       <!-- 分页 -->

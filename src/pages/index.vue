@@ -37,10 +37,10 @@ const indexThreeContent = ref({
   title: 'Service',
   subtitle: 'Company',
   infoList: [
-    { title: '值得信赖的', describe: '专业至上，以诚待客，效率争先，赢得客户信赖', imgUrl: '/images/index/index_3_service1.jpg' },
-    { title: '可持续的', describe: '保持服务可持续性，建立长期稳定的客户关系', imgUrl: '/images/index/index_3_service2.jpg' },
-    { title: '有温度的', describe: '贴心陪伴，密切互动,与客户共成长，传递企业温暖', imgUrl: '/images/index/index_3_service3.jpg' },
-    { title: '有品质的', describe: '创造高品质、差异化的服务体验，实现服务增值', imgUrl: '/images/index/index_3_service4.jpg' },
+    { title: '售前售后服务', describe: '售前、售中、售后服务全方位，包括定制化线上线下培训、设立IPAF培训中心、终身维修、免费技术支持等。', imgUrl: '/images/index/index_3_service1.jpg' },
+    { title: '质保服务', describe: '依托高端智造及卓越品质，鼎力全系列产品三年质保。', imgUrl: '/images/index/index_3_service2.jpg' },
+    { title: '保障服务', describe: '北工为客户终身提供产品维修及保养配件，专业品质、质量保证。', imgUrl: '/images/index/index_3_service3.jpg' },
+    { title: '贴心服务', describe: '北工提供7×24小时”保姆式“贴心服务。', imgUrl: '/images/index/index_3_service4.jpg' },
   ],
 })
 </script>
@@ -215,7 +215,7 @@ const indexThreeContent = ref({
               <div class="absolute left-5% top-5 z-10 w-90% text-white font-700 mobile:text-lg pc:text-xl">
                 {{ item.title }}
               </div>
-              <div class="absolute left-5% top-15 z-10 w-90% text-white mobile:text-xs pc:text-sm">
+              <div class="absolute left-5% top-15 line-clamp-2 z-10 w-90% text-white mobile:text-xs pc:text-sm">
                 {{ item.describe }}
               </div>
               <div class="animate__animated animate__headShake animate__infinite absolute bottom-5 right-5% z-10 text-sm text-white">
